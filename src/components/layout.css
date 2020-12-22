@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  background: cornflowerblue;
+}
+
+div {
+  color: white;
+  font-family: monospace;
+}
