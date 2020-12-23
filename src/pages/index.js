@@ -1,5 +1,7 @@
 import React from "react"
-import Sims from "../../static/jdsims.jpg"
+import ArmySims from "../../static/jdsims.jpg"
+import Sims from "../../static/SimsPortrait.jpg"
+import ArmyGroup from "../../static/SimsArmyPhoto.jpg"
 import Layout from "../components/layout"
 import {
   GoogleMap,
@@ -42,11 +44,26 @@ export default function Home() {
         }}
       >
         <h1>JD Sims</h1>
-        <img src={Sims} alt="James Davis Sims" width="90%" height="90%"></img>
+        <img
+          src={Sims}
+          alt="James Davis Sims"
+          width="90%"
+          height="90%"
+          style={{ maxWidth: "400px", maxHeight: "400px" }}
+        ></img>
 
         {isClient && (
           <>
             <h2>Recreation Center</h2>
+            <p
+              style={{
+                margin: "10px 40px",
+                textAlign: "left",
+                maxWidth: "600px",
+              }}
+            >
+              Atlanta is home to J.D. Sims Recreation Center.
+            </p>
             <div style={{ width: "80%", height: "300px" }}>
               <WrappedMap
                 googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.GATSBY_GOOGLE_KEY}`}
@@ -57,11 +74,36 @@ export default function Home() {
             </div>
           </>
         )}
+        <h2>ARMY PHOTOS</h2>
+        <p
+          style={{
+            margin: "10px 40px",
+            textAlign: "left",
+            maxWidth: "600px",
+          }}
+        >
+          Photos from his time in the military.
+        </p>
+        <img
+          src={ArmyGroup}
+          alt="Florida Army 1941"
+          width="90%"
+          height="90%"
+        ></img>
+        <div style={{ paddingTop: "20px" }}></div>
+        <img
+          src={ArmySims}
+          alt="James Davis Sims"
+          width="90%"
+          height="90%"
+          style={{ maxWidth: "500px", maxHeight: "500px" }}
+        ></img>
         <h2>BIO</h2>
         <p
           style={{
             margin: "10px 40px",
             textAlign: "left",
+            maxWidth: "600px",
           }}
         >
           Mr. James D. Sims born on January 7, 10-6 in Stone Mountain, Ga to Mr.
@@ -72,6 +114,7 @@ export default function Home() {
           style={{
             margin: "10px 40px",
             textAlign: "left",
+            maxWidth: "600px",
           }}
         >
           He was baptized by the late Reverand Babcock at Big Bethel A.M.E.
@@ -85,6 +128,7 @@ export default function Home() {
           style={{
             margin: "10px 40px",
             textAlign: "left",
+            maxWidth: "600px",
           }}
         >
           J.D.served in the armed for 4 years, 4 months and 18 days. His tour of
