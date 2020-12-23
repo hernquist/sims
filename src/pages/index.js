@@ -1,6 +1,30 @@
 import React from "react"
 import Sims from "../../static/jdsims.jpg"
 import Layout from "../components/layout"
+import {
+  GoogleMap,
+  withScriptjs,
+  withGoogleMap,
+  Marker,
+} from "react-google-maps"
+
+function Map() {
+  return (
+    <GoogleMap
+      defaultZoom={13}
+      defaultCenter={{ lat: 33.77639, lng: -84.36926 }}
+    >
+      <Marker
+        position={{ lat: 33.77639, lng: -84.36926 }}
+        label="JD Sims Recreation Center"
+      />
+    </GoogleMap>
+  )
+}
+
+const WrappedMap = withScriptjs(withGoogleMap(Map))
+
+const isClient = typeof window !== "undefined"
 
 export default function Home() {
   return (
@@ -17,8 +41,18 @@ export default function Home() {
           padding: "0 0 100px",
         }}
       >
-        <h2>JD Sims</h2>
+        <h1>JD Sims</h1>
         <img src={Sims} alt="James Davis Sims" width="90%" height="90%"></img>
+        <h2>Recreation Center</h2>
+        <div style={{ width: "80%", height: "300px" }}>
+          <WrappedMap
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+            loadingElement={<div style={{ height: "100%" }} />}
+            containerElement={<div style={{ height: "100%" }} />}
+            mapElement={<div style={{ height: "100%" }} />}
+          />
+        </div>
+        <h2>BIO</h2>
         <p
           style={{
             margin: "10px 40px",
@@ -55,6 +89,15 @@ export default function Home() {
           World War II. He changed his church membership to Denson Temple
           People's Free Methodist Church and married a month or so later.
         </p>
+
+        <div style={{ width: "80%", height: "300px" }}>
+          <WrappedMap
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+            loadingElement={<div style={{ height: "100%" }} />}
+            containerElement={<div style={{ height: "100%" }} />}
+            mapElement={<div style={{ height: "100%" }} />}
+          />
+        </div>
       </div>
     </Layout>
   )
