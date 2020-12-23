@@ -6,11 +6,11 @@
 
 module.exports = {
   plugins: [
-    {
-      resolve: `react-google-maps`,
-      options: {
-        key: process.env.GATSBY_GOOGLE_KEY,
-      },
-    },
+    // {
+    //   resolve: `react-google-maps`,
+    //   options: {
+    //     key: process.env.GATSBY_GOOGLE_KEY,
+    //   },
+    // },
   ],
 }
