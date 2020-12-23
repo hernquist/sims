@@ -106,7 +106,7 @@ export default function Home() {
             maxWidth: "600px",
           }}
         >
-          Mr. James D. Sims born on January 7, 10-6 in Stone Mountain, Ga to Mr.
+          Mr. James D. Sims born on January 7, 1906 in Stone Mountain, Ga to Mr.
           and Mrs. James Davis. He was reared by his grandparents and assumed
           Sims as his surname.
         </p>
