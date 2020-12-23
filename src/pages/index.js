@@ -43,15 +43,20 @@ export default function Home() {
       >
         <h1>JD Sims</h1>
         <img src={Sims} alt="James Davis Sims" width="90%" height="90%"></img>
-        <h2>Recreation Center</h2>
-        <div style={{ width: "80%", height: "300px" }}>
-          <WrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-            loadingElement={<div style={{ height: "100%" }} />}
-            containerElement={<div style={{ height: "100%" }} />}
-            mapElement={<div style={{ height: "100%" }} />}
-          />
-        </div>
+
+        {isClient && (
+          <>
+            <h2>Recreation Center</h2>
+            <div style={{ width: "80%", height: "300px" }}>
+              <WrappedMap
+                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+                loadingElement={<div style={{ height: "100%" }} />}
+                containerElement={<div style={{ height: "100%" }} />}
+                mapElement={<div style={{ height: "100%" }} />}
+              />
+            </div>
+          </>
+        )}
         <h2>BIO</h2>
         <p
           style={{
@@ -89,15 +94,6 @@ export default function Home() {
           World War II. He changed his church membership to Denson Temple
           People's Free Methodist Church and married a month or so later.
         </p>
-
-        <div style={{ width: "80%", height: "300px" }}>
-          <WrappedMap
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-            loadingElement={<div style={{ height: "100%" }} />}
-            containerElement={<div style={{ height: "100%" }} />}
-            mapElement={<div style={{ height: "100%" }} />}
-          />
-        </div>
       </div>
     </Layout>
   )
