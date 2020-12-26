@@ -3,32 +3,30 @@ import ArmySims from "../../static/jdsims.jpg"
 import Sims from "../../static/SimsPortrait.jpg"
 import ArmyGroup from "../../static/SimsArmyPhoto.jpg"
 import Layout from "../components/layout"
-import {
-  GoogleMap,
-  withScriptjs,
-  withGoogleMap,
-  Marker,
-} from "react-google-maps"
 
-function Map() {
-  return (
-    <GoogleMap
-      defaultZoom={13}
-      defaultCenter={{ lat: 33.77639, lng: -84.36926 }}
-    >
-      <Marker
-        position={{ lat: 33.77639, lng: -84.36926 }}
-        label="JD Sims Recreation Center"
-      />
-    </GoogleMap>
-  )
-}
+import Img from "gatsby-image"
+import { graphql } from "gatsby"
 
-const WrappedMap = withScriptjs(withGoogleMap(Map))
+export const query = graphql`
+  query StaticMapQuery {
+    staticMap {
+      childFile {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+`
 
 const isClient = typeof window !== "undefined"
 
-export default function Home() {
+const simRecUrl =
+  "https://www.google.com/maps/uv?pb=!1s0x88f5041aa532941b%3A0xcba7d18deb2319f3!3m1!7e115!4s%2Fmaps%2Fplace%2Fjd%2Bsims%2F%4033.766456%2C-84.3695551%2C3a%2C75y%2C23.11h%2C90t%2Fdata%3D*213m4*211e1*213m2*211syMmKEOvSrYQtngTy2CSzYQ*212e0*214m2*213m1*211s0x88f5041aa532941b%3A0xcba7d18deb2319f3%3Fsa%3DX!5sjd%20sims%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e2!2syMmKEOvSrYQtngTy2CSzYQ&hl=en&sa=X&ved=2ahUKEwiC6sqOhOvtAhVSjlkKHb1GBT8Qpx8wCnoECBMQCA"
+
+export default function Home({ data }) {
   return (
     <Layout>
       <div
@@ -52,28 +50,45 @@ export default function Home() {
           style={{ maxWidth: "400px", maxHeight: "400px" }}
         ></img>
 
-        {isClient && (
-          <>
-            <h2>Recreation Center</h2>
-            <p
-              style={{
-                margin: "10px 40px",
-                textAlign: "left",
-                maxWidth: "600px",
-              }}
-            >
-              Atlanta is home to J.D. Sims Recreation Center.
-            </p>
-            <div style={{ width: "80%", height: "300px" }}>
-              <WrappedMap
-                googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.GATSBY_GOOGLE_KEY}`}
-                loadingElement={<div style={{ height: "100%" }} />}
-                containerElement={<div style={{ height: "100%" }} />}
-                mapElement={<div style={{ height: "100%" }} />}
-              />
-            </div>
-          </>
-        )}
+        <>
+          <h2>Recreation Center</h2>
+          <p
+            style={{
+              margin: "10px 40px",
+              textAlign: "left",
+              maxWidth: "600px",
+            }}
+          >
+            Atlanta is home to{" "}
+            <span>
+              <a
+                style={{ color: "white", textDecoration: "underline" }}
+                href={simRecUrl}
+                target="_blank"
+              >
+                J.D. Sims Recreation Center
+              </a>
+            </span>
+            .
+          </p>
+
+          <a
+            style={{
+              width: "80%",
+              height: "300px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+            href={simRecUrl}
+            target="_blank"
+          >
+            <Img
+              fluid={data.staticMap.childFile.childImageSharp.fluid}
+              alt="rec center"
+              style={{ width: "100%", height: "300px" }}
+            />
+          </a>
+        </>
         <h2>ARMY PHOTOS</h2>
         <p
           style={{
