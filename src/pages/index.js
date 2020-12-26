@@ -21,8 +21,6 @@ export const query = graphql`
   }
 `
 
-const isClient = typeof window !== "undefined"
-
 const simRecUrl =
   "https://www.google.com/maps/uv?pb=!1s0x88f5041aa532941b%3A0xcba7d18deb2319f3!3m1!7e115!4s%2Fmaps%2Fplace%2Fjd%2Bsims%2F%4033.766456%2C-84.3695551%2C3a%2C75y%2C23.11h%2C90t%2Fdata%3D*213m4*211e1*213m2*211syMmKEOvSrYQtngTy2CSzYQ*212e0*214m2*213m1*211s0x88f5041aa532941b%3A0xcba7d18deb2319f3%3Fsa%3DX!5sjd%20sims%20-%20Google%20Search!15sCgIgAQ&imagekey=!1e2!2syMmKEOvSrYQtngTy2CSzYQ&hl=en&sa=X&ved=2ahUKEwiC6sqOhOvtAhVSjlkKHb1GBT8Qpx8wCnoECBMQCA"
 

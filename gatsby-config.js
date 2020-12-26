@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: `@ccalamos/gatsby-source-googlemaps-static`,
       options: {
-        key: "AIzaSyA9ayOJLDfctfkr1hukXY-oITZoCFSvUl0",
+        key: `${process.env.GATSBY_GOOGLE_KEY}`,
         center:
           "J D Sims Recreation Center, 544 Angier Ave NE, Atlanta, GA 30308",
         markers: [
@@ -18,7 +18,7 @@ module.exports = {
             label: `A_SINGLE_ALPHANUMERIC_CHARACTER`,
           },
         ],
-        zoom: 15,
+        zoom: 16,
       },
     },
     `gatsby-transformer-sharp`,
